@@ -19,6 +19,10 @@ import math
 import os
 import json
 
+
+
+
+
 # FUNCTIONS 
 
 def get_clipboard(): # returns the current clipboard
@@ -106,6 +110,42 @@ def write_save_json(fileName, contents): # takes in a filename and a json string
         return 1
     except:
         return -1
+
+def type_comparison(variable): # returns a string of a variables type. Use for printing the variable type neatly and easily? Type matching? Debugging?
+    variable = str(type(variable))
+    match variable: # not strictly supposed to be used for this. Im using it like this to avoid an if stack
+        case "<class 'int'>":
+            return "int"
+        case "<class 'float'>":
+            return "float"
+        case "<class 'str'>":
+            return "str"
+        case "<class 'complex'>":
+            return "complex"
+        case "<class 'list'>":
+            return "list"
+        case "<class 'tuple'>":
+            return "tuple"
+        case "<class 'range'>":
+            return "range"
+        case "<class 'dict'>":
+            return "dict"
+        case "<class 'set'>":
+            return "set"
+        case "<class 'frozenset'>":
+            return "frozenset"
+        case "<class 'bool'>":
+            return "bool"
+        case "<class 'bytes'>":
+            return "bytes"
+        case "<class 'bytearray'>":
+            return "bytearray"
+        case "<class 'memoryview'>":
+            return "memoryview"
+        case _:
+            print ("Possible custom data type? Not recognised")
+            return -1
+
 
 # CLASSES
 
