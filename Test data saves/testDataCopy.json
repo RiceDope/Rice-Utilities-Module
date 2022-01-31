@@ -1,0 +1,21 @@
+{
+    "name":"Moe",
+    "classes":{
+        "1":"English",
+        "2":"Maths",
+        "3":"Computer Science"
+    },
+    "attendance":{
+        "dayOne":[
+            "Present",
+            "Not Present",
+            "Present"
+        ],
+        "dayTwo":[
+            "Present",
+            "Present",
+            "Not Present"
+        ]
+    },
+    "school":"Bromley"
+}
