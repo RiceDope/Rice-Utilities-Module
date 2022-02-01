@@ -1,13 +1,11 @@
-from unicodedata import name
 import riceutils as utils
 import json
 import os
-
-
-
+import webbrowser
 
 def main():
-    name = frozenset({"apple", "banana", "cherry"})
-    print(f"The variable name is type: {utils.type_comparison(name)}")
+    result = utils.traverse_directories(os.getcwd(), allFiles=[], writeToFile=True, exceptions = [".git", "__pycache__", "Example use cases"])
+
+
 if __name__ == "__main__":
     main()

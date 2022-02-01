@@ -15,9 +15,11 @@ except:
     clipboardModule = False
 
 # import standard python modules
+from datetime import datetime
 import math
 import os
 import json
+import webbrowser
 
 
 
@@ -146,6 +148,39 @@ def type_comparison(variable): # returns a string of a variables type. Use for p
             print ("Possible custom data type? Not recognised")
             return -1
 
+def open_browser(webName): # open up the default browser to a specified webpage
+    try:
+        webbrowser.open(f"https://www.{webName}")
+    except:
+        return -1
+
+# result = utils.traverse_directories(os.getcwd(), allFiles=[], writeToFile=True, exceptions=[".git", "__pycache__",".tmp.drivedownload",".tmp.driveupload","build"]) run from Coding directory
+def traverse_directories(path, allFiles, writeToFile=False, **exceptions): # traverse files from the starting directory of the python file
+    startTime = datetime.now()
+
+    exceptions = exceptions
+    def container(path, allFiles):
+        contents = os.listdir(path)
+        for x in range(0,len(contents)):
+            temp = f"{path}\\{contents[x]}"
+            try:
+                if os.path.isdir(temp):
+                    if contents[x] not in exceptions["exceptions"]: # check for exceptions
+                        container(temp, allFiles) # run function for new folder
+                else:
+                    allFiles.append(contents[x]) # add the file to the list
+            except:
+                continue
+
+        return allFiles
+    
+    result = container(path, allFiles)
+    endTime = datetime.now()
+    print(f"--COMPLETED THE TASK--\n\n\nDirectory exceptions: {exceptions}\nStart time: {startTime}\nEnd time: {endTime}")
+    if writeToFile == True: # write to dump file in the directory of the search
+        with open("dump.txt", "w") as file:
+            file.write(str(result))
+    return result # return search result to the user
 
 # CLASSES
 

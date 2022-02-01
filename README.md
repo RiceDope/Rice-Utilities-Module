@@ -9,6 +9,8 @@
 - open_read_json()
 - write_save_json()
 - type_comparison()
+- open_browser()
+- traverse_directories()
 ### Maths utilities
 - pythab()
 - pythac()
