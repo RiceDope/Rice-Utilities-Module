@@ -12,12 +12,12 @@ import os
 def main():
     currentDirectory = os.getcwd() # get the current working directory
 
-    myJsonFile = utils.open_read_json(f"{currentDirectory}\\testData.json") # open using custom function
-    utils.clear() # custom clear module
+    myJsonFile = utils.utils.open_read_json(f"{currentDirectory}\\testData.json") # open using custom function
+    utils.utils.clear() # custom clear module
     print(f"\n\n\n{myJsonFile}")
     myJsonFile["name"] = input("Whats your name?\n>>>") # change the name attribute
     fileName = input("What would you like to call the file?\n>>>")
-    result = utils.write_save_json(f"{currentDirectory}\\{fileName}.json", myJsonFile) # save that to file
+    result = utils.utils.write_save_json(f"{currentDirectory}\\{fileName}.json", myJsonFile) # save that to file
 
     if result == 1: # functions return 1 it was completed and nothing is expected back
         print("File save successful")
